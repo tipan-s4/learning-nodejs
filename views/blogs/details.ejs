@@ -1,0 +1,36 @@
+<html lang="en">
+<%- include("../partials/head.ejs") %>
+
+<body>
+  <%- include("../partials/nav.ejs") %>
+
+  <div class="details content">
+    <h2><%= blog.title %></h2>
+    <div class="content">
+      <p><%= blog.body %></p>
+    </div>
+    <!-- Propiedad para enviar datos a javascript -->
+    <!-- En este caso enviamos el id del blog -->
+    <a class="delete" data-doc="<%= blog._id %>">delete</a>
+  </div>
+
+  <%- include("../partials/footer.ejs") %>
+
+  <script>
+    const trashcan = document.querySelector('a.delete');
+    trashcan.addEventListener('click', (e) => {
+        // Recogemos el dato enviado anteriormente y creamos la url
+        // que express usara para recoger los datos
+      const endpoint = `/blogs/${trashcan.dataset.doc}`;
+    //  Hacemos uso de ajax e indicamos el metodo de envio que queremos usar
+      fetch(endpoint, {
+        method: 'DELETE',
+      })
+      .then(response => response.json())
+      .then(data => window.location.href = data.redirect)
+      .catch(err => console.log(err));
+    });
+    
+  </script>
+</body>
+</html>

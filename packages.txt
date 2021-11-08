@@ -1,0 +1,29 @@
+#Nodemon para reiniciar el servidor automaticamente cada vez que guardemos
+> npm install -g nodemon
+-Nota -g lo instala globalmente. Sin el -g solo se instala para el paquete
+Ahora en vez de llamar a node para ejecutar un archivo llamaremos a nodemon (ej:>nodemon server)
+Por si se produce un error .En la powershell Set-ExecutionPolicy Unrestricted
+
+#Si tenemos pensado en usar paquetes externos deberemos crear un paquete node
+>npm init
+Se crea un archivo llamado packages.json que contiene informacion acerca de nuestro proyecto
+
+#Al subir codigo a git no debemos subir el directorio node_modules debido al tamaño de este
+Para instalar los paqutes necesarios deberemos hacer uso de:
+>npm install
+Esto mira en packages.json y los instala por nosostros
+
+#Para organizar nuestro servidor mejor usaremos express
+>npm install express
+
+#Para mostrar contenido dinamico usaremos ejs
+>npm install ejs
+
+#Usaremos mongodb como nuestra base de datos
+-Deberemos crearnos una cuenta
+-Creamos un cluster y una nueva 'Colection'
+-Añadimos un usuario
+-Volvemos a la seccion de cluster y pulsamos en connect
+-Copiamos la direccion de nuestra aplicacion
+-Usaremos mongoose para crear modelos como en python
+>npm install mongoose
